@@ -4,6 +4,7 @@ interface Color {
   name: string;
   hex: string;
   description: string;
+  myth: string;
 }
 
 interface ColorDetailProps {
@@ -66,7 +67,21 @@ const ColorDetail: React.FC<ColorDetailProps> = ({ color, onClose }) => {
         </div>
 
         <h2 style={{ color: '#2c3e50', marginBottom: '1rem' }}>{color.name}</h2>
-        <p style={{ color: '#34495e', lineHeight: '1.6' }}>{color.description}</p>
+        
+        <section style={{ marginBottom: '1.5rem' }}>
+          <h3 style={{ color: '#3498db', marginBottom: '0.5rem' }}>About this Color</h3>
+          <p style={{ color: '#34495e', lineHeight: '1.6' }}>{color.description}</p>
+        </section>
+
+        <section style={{ 
+          backgroundColor: '#f8f9fa',
+          padding: '1rem',
+          borderRadius: '8px',
+          marginBottom: '1.5rem'
+        }}>
+          <h3 style={{ color: '#e74c3c', marginBottom: '0.5rem' }}>Myth Busting!</h3>
+          <p style={{ color: '#34495e', lineHeight: '1.6' }}>{color.myth}</p>
+        </section>
         
         <div style={{ marginTop: '1.5rem', color: '#7f8c8d' }}>
           <p>Hex Code: {color.hex}</p>

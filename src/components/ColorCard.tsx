@@ -4,6 +4,7 @@ interface Color {
   name: string;
   hex: string;
   description: string;
+  myth: string;
 }
 
 interface ColorCardProps {
@@ -23,7 +24,6 @@ const ColorCard: React.FC<ColorCardProps> = ({ color, onClick }) => {
         transition: 'transform 0.2s',
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: '200px',
@@ -37,8 +37,7 @@ const ColorCard: React.FC<ColorCardProps> = ({ color, onClick }) => {
         e.currentTarget.style.transform = 'scale(1)';
       }}
     >
-      <h2 style={{ margin: '0 0 10px 0', fontSize: '24px' }}>{color.name}</h2>
-      <p style={{ margin: 0, fontSize: '16px' }}>{color.description}</p>
+      <h2 style={{ margin: 0, fontSize: '32px', fontWeight: 'bold' }}>{color.name}</h2>
     </div>
   );
 };
