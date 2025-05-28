@@ -77,3 +77,23 @@ button:active {
 .read-the-docs {
   color: #888;
 }
+
+.app {
+  min-height: 100vh;
+  background-color: #f5f6fa;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .color-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}

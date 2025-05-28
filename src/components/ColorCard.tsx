@@ -1,30 +1,34 @@
 import React from 'react';
 
-interface ColorCardProps {
+interface Color {
   name: string;
-  color: string;
+  hex: string;
+  description: string;
+}
+
+interface ColorCardProps {
+  color: Color;
   onClick: () => void;
 }
 
-const ColorCard: React.FC<ColorCardProps> = ({ name, color, onClick }) => {
+const ColorCard: React.FC<ColorCardProps> = ({ color, onClick }) => {
   return (
     <div
       onClick={onClick}
       style={{
-        backgroundColor: color,
+        backgroundColor: color.hex,
         padding: '20px',
-        borderRadius: '15px',
+        borderRadius: '10px',
         cursor: 'pointer',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
         transition: 'transform 0.2s',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '150px',
-        color: getContrastColor(color),
-        fontSize: '24px',
-        fontWeight: 'bold',
-        textAlign: 'center',
+        minHeight: '200px',
+        color: '#fff',
+        textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
       }}
       onMouseOver={(e) => {
         e.currentTarget.style.transform = 'scale(1.05)';
@@ -33,7 +37,8 @@ const ColorCard: React.FC<ColorCardProps> = ({ name, color, onClick }) => {
         e.currentTarget.style.transform = 'scale(1)';
       }}
     >
-      {name}
+      <h2 style={{ margin: '0 0 10px 0', fontSize: '24px' }}>{color.name}</h2>
+      <p style={{ margin: 0, fontSize: '16px' }}>{color.description}</p>
     </div>
   );
 };
