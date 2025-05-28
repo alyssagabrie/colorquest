@@ -2,24 +2,24 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <div style={{
-      padding: '2rem',
-      maxWidth: '800px',
-      margin: '0 auto',
-      backgroundColor: '#fff',
-      borderRadius: '1rem',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-    }}>
-      <h1 style={{ color: '#2c3e50', marginBottom: '1rem' }}>About ColorQuest</h1>
-      <p style={{ color: '#34495e', lineHeight: '1.6', marginBottom: '1rem' }}>
-        ColorQuest is an interactive learning tool designed to help children explore and understand colors in a fun and engaging way. Through interactive color cards, quizzes, and reflection prompts, children can learn about different colors, their meanings, and how they affect our emotions and daily lives.
-      </p>
-      <p style={{ color: '#34495e', lineHeight: '1.6', marginBottom: '1rem' }}>
-        This app is recommended for children ages 4-8, helping young learners understand colors and express their creativity through interactive play.
-      </p>
-      <p style={{ color: '#34495e', lineHeight: '1.6', marginBottom: '1rem' }}>
-        <strong>Test Deployment:</strong> If you can see this message, the GitHub Pages deployment is working correctly! 🎉
-      </p>
+    <div style={{ maxWidth: 600, margin: '2rem auto', padding: '2rem', background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
+      <h2>About ColorQuest</h2>
+      <section style={{ marginBottom: '1.5rem' }}>
+        <h3>Description</h3>
+        <p>
+          ColorQuest is an interactive web app designed to help children learn about colors through fun activities, color cards, and myth-busting facts. The app is visually engaging and easy to use, making color learning enjoyable for young users.
+        </p>
+      </section>
+      <section style={{ marginBottom: '1.5rem' }}>
+        <h3>Author</h3>
+        <p>Alyssa Herrera</p>
+      </section>
+      <section>
+        <h3>Purpose</h3>
+        <p>
+          The purpose of ColorQuest is to provide an educational tool for children to explore, understand, and reflect on colors, while also addressing common misconceptions in a fun and interactive way.
+        </p>
+      </section>
     </div>
   );
 };
