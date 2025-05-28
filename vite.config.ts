@@ -22,5 +22,10 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['react', 'react-dom']
+  },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
   }
 })
