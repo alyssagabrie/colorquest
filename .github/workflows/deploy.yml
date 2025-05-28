@@ -34,4 +34,4 @@ jobs:
           branch: gh-pages
           clean: true
           commit-message: "Deploying to gh-pages 🚀"
-          force: true 
+          token: ${{ secrets.GH_PAT }} 
