@@ -16,9 +16,9 @@ export default defineConfig({
     }
   },
   server: {
-    headers: {
-      'Content-Type': 'application/javascript'
-    }
+    port: 3000,
+    strictPort: true,
+    host: true
   },
   optimizeDeps: {
     include: ['react', 'react-dom']
