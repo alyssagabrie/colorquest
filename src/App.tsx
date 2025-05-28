@@ -64,34 +64,59 @@ const colorMyths = [
 
 const colorQuizQuestions: QuizQuestion[] = [
   {
-    question: "Which color was traditionally associated with boys in the early 1900s?",
-    options: ["Blue", "Pink", "Green", "Yellow"],
+    question: "If a boy likes pink, what does that mean?",
+    options: [
+      "Nothing - colors don't have gender",
+      "He must be a girl",
+      "He's not a real boy",
+      "He's breaking the rules"
+    ],
+    correctAnswer: 0,
+    explanation: "Colors don't have gender! Anyone can like any color they want. In fact, pink used to be considered a boy's color in the early 1900s!"
+  },
+  {
+    question: "What should you do if someone says 'blue is for boys'?",
+    options: [
+      "Agree with them",
+      "Tell them colors are for everyone",
+      "Never wear blue again",
+      "Only wear blue on special days"
+    ],
     correctAnswer: 1,
-    explanation: "Pink was considered a stronger color and was often used for boys' clothing in the early 1900s!"
+    explanation: "You can politely explain that colors are for everyone! There are no 'boy colors' or 'girl colors' - we can all enjoy any color we like."
   },
   {
-    question: "What does the color red symbolize in Chinese culture?",
-    options: ["Danger", "Good fortune", "Love", "Anger"],
+    question: "Why do some people think certain colors are only for certain genders?",
+    options: [
+      "Because it's a natural rule",
+      "Because of old-fashioned ideas and marketing",
+      "Because colors have feelings",
+      "Because it's written in the stars"
+    ],
     correctAnswer: 1,
-    explanation: "In Chinese culture, red symbolizes good fortune, joy, and prosperity."
+    explanation: "These ideas came from old-fashioned thinking and marketing. Companies used to sell toys and clothes by telling people certain colors were only for certain genders, but that's not true!"
   },
   {
-    question: "Which famous artist said 'Color is my day-long obsession, joy, and torment'?",
-    options: ["Vincent van Gogh", "Pablo Picasso", "Claude Monet", "Frida Kahlo"],
-    correctAnswer: 2,
-    explanation: "Claude Monet was known for his revolutionary use of color in impressionist painting."
-  },
-  {
-    question: "What color is associated with royalty in many cultures?",
-    options: ["Red", "Blue", "Purple", "Gold"],
-    correctAnswer: 2,
-    explanation: "Purple became associated with royalty because the dye was historically very expensive to produce."
-  },
-  {
-    question: "Which color is considered lucky in many Asian cultures?",
-    options: ["Blue", "Red", "Green", "Yellow"],
+    question: "What's the best thing to do if you like a color that others say is 'not for your gender'?",
+    options: [
+      "Never wear that color again",
+      "Wear it proudly and be yourself",
+      "Only wear it at home",
+      "Ask permission first"
+    ],
     correctAnswer: 1,
-    explanation: "Red is considered lucky in many Asian cultures and is often used in celebrations and festivals."
+    explanation: "Be yourself and wear what makes you happy! Colors are for everyone, and you should never feel ashamed of liking any color."
+  },
+  {
+    question: "If you see someone being teased for liking a certain color, what should you do?",
+    options: [
+      "Join in the teasing",
+      "Stand up for them and explain colors are for everyone",
+      "Ignore it",
+      "Tell them to change their favorite color"
+    ],
+    correctAnswer: 1,
+    explanation: "It's important to stand up for others and explain that colors are for everyone! Being kind and inclusive makes the world a better place."
   }
 ];
 
@@ -132,28 +157,48 @@ const objectMyths = [
 
 const objectQuizQuestions: QuizQuestion[] = [
   {
-    question: "Can boys play with dolls?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Absolutely! Dolls help all children learn empathy and care."
-  },
-  {
-    question: "Are building sets only for boys?",
-    options: ["Yes", "No"],
+    question: "What should you do if someone says 'dolls are only for girls'?",
+    options: [
+      "Agree with them",
+      "Explain that toys are for everyone",
+      "Never play with dolls again",
+      "Only play with dolls in secret"
+    ],
     correctAnswer: 1,
-    explanation: "No! Building sets are for everyone and help develop creativity."
+    explanation: "Toys are for everyone! Playing with dolls helps all children learn about caring and empathy, which is important for everyone."
   },
   {
-    question: "Who can play with kitchen toys?",
-    options: ["Only girls", "Everyone", "Only boys", "Only adults"],
+    question: "Why do some people think certain toys are only for certain genders?",
+    options: [
+      "Because it's a natural rule",
+      "Because of old-fashioned ideas and toy marketing",
+      "Because toys have feelings",
+      "Because it's written in the stars"
+    ],
     correctAnswer: 1,
-    explanation: "Everyone needs to learn how to cook! Kitchen toys help all children learn important life skills."
+    explanation: "These ideas came from old-fashioned thinking and marketing. Companies used to sell toys by telling people certain toys were only for certain genders, but that's not true!"
   },
   {
-    question: "Can girls be superheroes?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Yes! There are many amazing female superheroes like Wonder Woman, Captain Marvel, and Black Widow."
+    question: "What's the best thing to do if you like a toy that others say is 'not for your gender'?",
+    options: [
+      "Never play with it again",
+      "Play with it proudly and be yourself",
+      "Only play with it at home",
+      "Ask permission first"
+    ],
+    correctAnswer: 1,
+    explanation: "Be yourself and play with what makes you happy! Toys are for everyone, and you should never feel ashamed of liking any toy."
+  },
+  {
+    question: "If you see someone being teased for playing with a certain toy, what should you do?",
+    options: [
+      "Join in the teasing",
+      "Stand up for them and explain toys are for everyone",
+      "Ignore it",
+      "Tell them to play with different toys"
+    ],
+    correctAnswer: 1,
+    explanation: "It's important to stand up for others and explain that toys are for everyone! Being kind and inclusive makes the world a better place."
   }
 ];
 
@@ -192,28 +237,48 @@ const activityMyths = [
 
 const activityQuizQuestions: QuizQuestion[] = [
   {
-    question: "Can boys do ballet?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Yes! Ballet is for everyone and helps with strength and coordination."
+    question: "What should you do if someone says 'ballet is only for girls'?",
+    options: [
+      "Agree with them",
+      "Explain that activities are for everyone",
+      "Never do ballet again",
+      "Only dance in secret"
+    ],
+    correctAnswer: 1,
+    explanation: "Activities are for everyone! Many famous male athletes take ballet to improve their strength and coordination. You should do what makes you happy!"
   },
   {
-    question: "Are girls good at science?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Yes! Girls and boys can both excel in science."
+    question: "Why do some people think certain activities are only for certain genders?",
+    options: [
+      "Because it's a natural rule",
+      "Because of old-fashioned ideas and stereotypes",
+      "Because activities have feelings",
+      "Because it's written in the stars"
+    ],
+    correctAnswer: 1,
+    explanation: "These ideas came from old-fashioned thinking and stereotypes. In reality, anyone can enjoy any activity they like, regardless of gender!"
   },
   {
-    question: "Can girls be good at video games?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Yes! Many professional gamers are women, and anyone can be good at games with practice."
+    question: "What's the best thing to do if you like an activity that others say is 'not for your gender'?",
+    options: [
+      "Never do it again",
+      "Do it proudly and be yourself",
+      "Only do it at home",
+      "Ask permission first"
+    ],
+    correctAnswer: 1,
+    explanation: "Be yourself and do what makes you happy! Activities are for everyone, and you should never feel ashamed of liking any activity."
   },
   {
-    question: "Should boys be allowed to take art classes?",
-    options: ["Yes", "No"],
-    correctAnswer: 0,
-    explanation: "Yes! Art is for everyone, and many famous artists are men."
+    question: "If you see someone being teased for doing a certain activity, what should you do?",
+    options: [
+      "Join in the teasing",
+      "Stand up for them and explain activities are for everyone",
+      "Ignore it",
+      "Tell them to try different activities"
+    ],
+    correctAnswer: 1,
+    explanation: "It's important to stand up for others and explain that activities are for everyone! Being kind and inclusive makes the world a better place."
   }
 ];
 
@@ -271,6 +336,9 @@ function App() {
   const nextQuestion = () => {
     if (currentQuestion < getQuiz().length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      setShowExplanation(false);
+    } else {
+      setCurrentQuestion(getQuiz().length);
       setShowExplanation(false);
     }
   };
@@ -347,6 +415,21 @@ function App() {
       myth: 'Gold is not just for winners! It\'s a color that can add warmth and elegance to any design.'
     }
   ]
+
+  const getResultMessage = (score: number, total: number) => {
+    const percentage = (score / total) * 100;
+    if (percentage === 100) {
+      return "Perfect! You're a true champion of equality! 🌟";
+    } else if (percentage >= 80) {
+      return "Excellent! You understand that everyone should be free to be themselves! 🎉";
+    } else if (percentage >= 60) {
+      return "Great job! You're learning that stereotypes don't define us! 🌈";
+    } else if (percentage >= 40) {
+      return "Good effort! Keep learning about breaking stereotypes! 💪";
+    } else {
+      return "Keep learning! Remember, everyone should be free to be themselves! 🌱";
+    }
+  };
 
   return (
     <div className="app">
@@ -479,18 +562,48 @@ function App() {
                   </div>
                 ) : (
                   <div className="results">
-                    <h3>Quiz Complete!</h3>
-                    <p>Your score: {score} out of {getQuiz().length}</p>
-                    <button 
-                      onClick={() => {
-                        setCurrentQuestion(0);
-                        setScore(0);
-                        setShowExplanation(false);
-                      }}
-                      className="option-button"
-                    >
-                      Try Again
-                    </button>
+                    <h3>Quiz Complete! 🎉</h3>
+                    <div className="results-content">
+                      <div className="score-display">
+                        <p className="score-text">Your score: {score} out of {getQuiz().length}</p>
+                        <div className="score-bar">
+                          <div 
+                            className="score-fill" 
+                            style={{ 
+                              width: `${(score / getQuiz().length) * 100}%`,
+                              backgroundColor: score === getQuiz().length ? '#2ecc71' : 
+                                             score >= getQuiz().length * 0.8 ? '#3498db' :
+                                             score >= getQuiz().length * 0.6 ? '#f1c40f' :
+                                             score >= getQuiz().length * 0.4 ? '#e67e22' : '#e74c3c'
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <p className="result-message">{getResultMessage(score, getQuiz().length)}</p>
+                      <div className="result-actions">
+                        <button 
+                          onClick={() => {
+                            setCurrentQuestion(0);
+                            setScore(0);
+                            setShowExplanation(false);
+                          }}
+                          className="option-button"
+                        >
+                          Try Again
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setCurrentSection('myths');
+                            setCurrentQuestion(0);
+                            setScore(0);
+                            setShowExplanation(false);
+                          }}
+                          className="option-button"
+                        >
+                          Learn More
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </section>
