@@ -12,6 +12,27 @@ interface QuizQuestion {
   explanation: string;
 }
 
+interface Color {
+  name: string;
+  hex: string;
+  description: string;
+  myth: string;
+}
+
+interface Myth {
+  myth: string;
+  truth: string;
+  history: string;
+}
+
+interface Category {
+  key: 'colors' | 'objects' | 'activities';
+  label: string;
+}
+
+type CategoryKey = Category['key'];
+type SectionKey = 'myths' | 'quiz' | 'explore';
+
 // Data for Colors
 const colorMyths = [
   {
@@ -205,14 +226,11 @@ const activityExplore = [
   "How can we make sure everyone feels welcome to join any activity?"
 ];
 
-const categories = [
+const categories: Category[] = [
   { key: 'colors', label: 'Colors' },
   { key: 'objects', label: 'Objects' },
   { key: 'activities', label: 'Activities' }
-] as const;
-
-type CategoryKey = typeof categories[number]['key'];
-type SectionKey = 'myths' | 'quiz' | 'explore';
+];
 
 function App() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
@@ -273,7 +291,7 @@ function App() {
   };
 
   // Color data for color cards
-  const colors = [
+  const colors: Color[] = [
     { 
       name: 'Red', 
       hex: '#FF0000', 
@@ -344,7 +362,7 @@ function App() {
           justifyContent: 'space-between',
           alignItems: 'center'
         }}>
-          <h1 style={{ color: 'white', margin: 0 }}>ColorQuest</h1>
+          <h1 style={{ color: 'white', margin: 0 }}>TrueColors4Kids</h1>
           <div>
             <button 
               onClick={() => setCurrentPage('home')}
@@ -377,25 +395,16 @@ function App() {
         </div>
       </nav>
 
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', minHeight: 'calc(100vh - 200px)' }}>
+      <main>
         {currentPage === 'home' ? (
-          <>
+          <div className="content-section">
             {/* Category Navigation */}
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <div className="category-nav">
               {categories.map(cat => (
                 <button
                   key={cat.key}
                   onClick={() => handleCategoryChange(cat.key)}
-                  style={{
-                    backgroundColor: currentCategory === cat.key ? '#e67e22' : '#2c3e50',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1.2rem',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    fontSize: '1rem'
-                  }}
+                  className={`category-button ${currentCategory === cat.key ? 'active' : ''}`}
                 >
                   {cat.label}
                 </button>
@@ -403,58 +412,33 @@ function App() {
             </div>
 
             {/* Section Navigation */}
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <div className="section-nav">
               <button
                 onClick={() => handleSectionChange('myths')}
-                style={{
-                  backgroundColor: currentSection === 'myths' ? '#3498db' : '#2c3e50',
-                  color: 'white',
-                  border: 'none',
-                  padding: '0.5rem 1.2rem',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '1rem'
-                }}
+                className={`section-button ${currentSection === 'myths' ? 'active' : ''}`}
               >
                 Myths
               </button>
               <button
                 onClick={() => handleSectionChange('quiz')}
-                style={{
-                  backgroundColor: currentSection === 'quiz' ? '#3498db' : '#2c3e50',
-                  color: 'white',
-                  border: 'none',
-                  padding: '0.5rem 1.2rem',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '1rem'
-                }}
+                className={`section-button ${currentSection === 'quiz' ? 'active' : ''}`}
               >
                 Quiz
               </button>
               <button
                 onClick={() => handleSectionChange('explore')}
-                style={{
-                  backgroundColor: currentSection === 'explore' ? '#3498db' : '#2c3e50',
-                  color: 'white',
-                  border: 'none',
-                  padding: '0.5rem 1.2rem',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '1rem'
-                }}
+                className={`section-button ${currentSection === 'explore' ? 'active' : ''}`}
               >
                 Explore
               </button>
             </div>
 
             {/* Section Content */}
-            {currentSection === 'myths' && (
+            {currentSection === 'myths' && currentCategory !== 'colors' && (
               <section className="myths-section">
-                <h2 style={{ color: '#e67e22' }}>{categories.find(c => c.key === currentCategory)?.label} Myths & Truths</h2>
+                <h2 style={{ color: '#e67e22', gridColumn: '1 / -1' }}>
+                  {categories.find(c => c.key === currentCategory)?.label} Myths & Truths
+                </h2>
                 {getMyths().map((myth, index) => (
                   <div key={index} className="myth-card">
                     <h3>Myth: {myth.myth}</h3>
@@ -478,6 +462,7 @@ function App() {
                           key={index}
                           onClick={() => handleAnswer(index)}
                           disabled={showExplanation}
+                          className="option-button"
                         >
                           {option}
                         </button>
@@ -486,7 +471,7 @@ function App() {
                     {showExplanation && (
                       <div className="explanation">
                         <p>{getQuiz()[currentQuestion].explanation}</p>
-                        <button onClick={nextQuestion}>
+                        <button onClick={nextQuestion} className="option-button">
                           {currentQuestion < getQuiz().length - 1 ? 'Next Question' : 'See Results'}
                         </button>
                       </div>
@@ -496,11 +481,14 @@ function App() {
                   <div className="results">
                     <h3>Quiz Complete!</h3>
                     <p>Your score: {score} out of {getQuiz().length}</p>
-                    <button onClick={() => {
-                      setCurrentQuestion(0);
-                      setScore(0);
-                      setShowExplanation(false);
-                    }}>
+                    <button 
+                      onClick={() => {
+                        setCurrentQuestion(0);
+                        setScore(0);
+                        setShowExplanation(false);
+                      }}
+                      className="option-button"
+                    >
                       Try Again
                     </button>
                   </div>
@@ -511,7 +499,7 @@ function App() {
             {currentSection === 'explore' && (
               <section className="explore-section">
                 <h2 style={{ color: '#e67e22' }}>Explore {categories.find(c => c.key === currentCategory)?.label}</h2>
-                <div className="color-info">
+                <div className="explore-card">
                   <ul>
                     {getExplore().map((fact, idx) => (
                       <li key={idx}>{fact}</li>
@@ -521,18 +509,45 @@ function App() {
               </section>
             )}
 
-            {/* Show color cards only for Colors category */}
+            {/* Show color cards for Colors category */}
             {currentCategory === 'colors' && (
               <>
-                <div className="color-grid">
-                  {colors.map(color => (
-                    <ColorCard
-                      key={color.name}
-                      color={color}
-                      onClick={() => setSelectedColor(color.name)}
-                    />
-                  ))}
-                </div>
+                {currentSection === 'myths' && (
+                  <div className="colors-layout">
+                    <div className="myths-section">
+                      <h2 style={{ color: '#e67e22' }}>Color Myths & Truths</h2>
+                      {getMyths().map((myth, index) => (
+                        <div key={index} className="myth-card">
+                          <h3>Myth: {myth.myth}</h3>
+                          <p><strong>Truth:</strong> {myth.truth}</p>
+                          <p><strong>History:</strong> {myth.history}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="color-grid">
+                      {colors.map(color => (
+                        <ColorCard
+                          key={color.name}
+                          color={color}
+                          onClick={() => setSelectedColor(color.name)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {(currentSection === 'quiz' || currentSection === 'explore') && (
+                  <div className="color-grid-container">
+                    <div className="color-grid">
+                      {colors.map(color => (
+                        <ColorCard
+                          key={color.name}
+                          color={color}
+                          onClick={() => setSelectedColor(color.name)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
                 {selectedColor && (
                   <ColorDetail
                     color={colors.find(c => c.name === selectedColor)!}
@@ -541,7 +556,7 @@ function App() {
                 )}
               </>
             )}
-          </>
+          </div>
         ) : (
           <About />
         )}
