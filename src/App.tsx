@@ -12,11 +12,22 @@ interface QuizQuestion {
   explanation: string;
 }
 
+// Data for Colors
 const colorMyths = [
   {
     myth: "Pink is for girls, blue is for boys",
     truth: "This is a relatively recent concept! Before the 1940s, pink was actually considered a stronger color suitable for boys, while blue was seen as delicate and feminine.",
     history: "The current association only became popular after World War II due to marketing campaigns."
+  },
+  {
+    myth: "Purple is only for girls",
+    truth: "Purple used to be a royal color for kings and queens. It belongs to everyone.",
+    history: "In ancient times, purple dye was expensive and worn by rulers, regardless of gender."
+  },
+  {
+    myth: "Boys shouldn't like bright or pastel colors",
+    truth: "Colors don't have feelings. Liking soft or bright colors doesn't say anything about your gender.",
+    history: "In the 1800s, pastel colors were considered fashionable for all children."
   },
   {
     myth: "Red means stop, green means go",
@@ -30,7 +41,7 @@ const colorMyths = [
   }
 ];
 
-const quizQuestions: QuizQuestion[] = [
+const colorQuizQuestions: QuizQuestion[] = [
   {
     question: "Which color was traditionally associated with boys in the early 1900s?",
     options: ["Blue", "Pink", "Green", "Yellow"],
@@ -63,14 +74,205 @@ const quizQuestions: QuizQuestion[] = [
   }
 ];
 
+const colorExplore = [
+  "Colors can affect our mood and emotions.",
+  "Different cultures see colors differently.",
+  "There are no 'boy colors' or 'girl colors' - colors are for everyone!",
+  "Some people can see more colors than others (tetrachromacy).",
+  "Colors can have different meanings in different contexts.",
+  "Why do you think some colors are called 'boy' colors and some 'girl' colors?",
+  "What's your favorite color? Has anyone ever said it's not for your gender?",
+  "Can colors have feelings? Why or why not?"
+];
+
+// Data for Objects
+const objectMyths = [
+  {
+    myth: "Dolls are for girls, trucks are for boys",
+    truth: "Toys are for everyone! Playing with dolls can help all children develop empathy and social skills, and trucks are fun for anyone who likes to build or imagine.",
+    history: "Toy marketing in the 20th century started to target toys by gender, but before that, children played with all kinds of toys."
+  },
+  {
+    myth: "Only boys play with building sets",
+    truth: "Building sets help all children learn problem-solving and creativity, regardless of gender.",
+    history: "Many famous female engineers and architects played with building sets as children."
+  },
+  {
+    myth: "Kitchen toys are only for girls",
+    truth: "Everyone needs to eat! Cooking toys help all kids learn important life skills.",
+    history: "Many of the world's best chefs are men—cooking is for everyone."
+  },
+  {
+    myth: "Superheroes are just for boys",
+    truth: "Anyone can be strong and brave. There are many amazing girl superheroes too!",
+    history: "Comic books have featured female superheroes like Wonder Woman since the 1940s."
+  }
+];
+
+const objectQuizQuestions: QuizQuestion[] = [
+  {
+    question: "Can boys play with dolls?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Absolutely! Dolls help all children learn empathy and care."
+  },
+  {
+    question: "Are building sets only for boys?",
+    options: ["Yes", "No"],
+    correctAnswer: 1,
+    explanation: "No! Building sets are for everyone and help develop creativity."
+  },
+  {
+    question: "Who can play with kitchen toys?",
+    options: ["Only girls", "Everyone", "Only boys", "Only adults"],
+    correctAnswer: 1,
+    explanation: "Everyone needs to learn how to cook! Kitchen toys help all children learn important life skills."
+  },
+  {
+    question: "Can girls be superheroes?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Yes! There are many amazing female superheroes like Wonder Woman, Captain Marvel, and Black Widow."
+  }
+];
+
+const objectExplore = [
+  "Many famous chefs (men and women) played with kitchen sets as kids.",
+  "Girls and boys can both enjoy sports equipment, dolls, and building sets.",
+  "Toys are tools for learning and fun, not for enforcing stereotypes.",
+  "Have you ever wanted to play with a toy but felt like it wasn't 'for you'? Why?",
+  "What makes a toy fun to play with, not who it's made for?",
+  "Do you think toy stores should be organized by gender?"
+];
+
+// Data for Activities
+const activityMyths = [
+  {
+    myth: "Ballet is for girls, football is for boys",
+    truth: "Anyone can enjoy dance or sports! Many famous male athletes have taken ballet to improve their strength and balance.",
+    history: "Gendered activities are a modern invention. Historically, both boys and girls participated in a variety of activities."
+  },
+  {
+    myth: "Girls don't like science or math",
+    truth: "Girls and boys are equally capable in all subjects. Interests are personal, not gendered.",
+    history: "There are many famous female scientists and mathematicians throughout history."
+  },
+  {
+    myth: "Only boys are good at video games",
+    truth: "Anyone can be good at games with practice and passion.",
+    history: "Girls and women have made huge contributions to the gaming industry."
+  },
+  {
+    myth: "Boys shouldn't take art or drama classes",
+    truth: "Creative expression is for everyone. Some of the world's best actors and artists are men.",
+    history: "Art and storytelling have been shared by all people throughout history."
+  }
+];
+
+const activityQuizQuestions: QuizQuestion[] = [
+  {
+    question: "Can boys do ballet?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Yes! Ballet is for everyone and helps with strength and coordination."
+  },
+  {
+    question: "Are girls good at science?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Yes! Girls and boys can both excel in science."
+  },
+  {
+    question: "Can girls be good at video games?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Yes! Many professional gamers are women, and anyone can be good at games with practice."
+  },
+  {
+    question: "Should boys be allowed to take art classes?",
+    options: ["Yes", "No"],
+    correctAnswer: 0,
+    explanation: "Yes! Art is for everyone, and many famous artists are men."
+  }
+];
+
+const activityExplore = [
+  "Many male football players take ballet to improve their agility.",
+  "Girls have won top awards in math and science competitions.",
+  "Activities are for everyone, regardless of gender.",
+  "What activities do you enjoy that others might not expect?",
+  "Why do you think people try to label activities by gender?",
+  "How can we make sure everyone feels welcome to join any activity?"
+];
+
+const categories = [
+  { key: 'colors', label: 'Colors' },
+  { key: 'objects', label: 'Objects' },
+  { key: 'activities', label: 'Activities' }
+] as const;
+
+type CategoryKey = typeof categories[number]['key'];
+type SectionKey = 'myths' | 'quiz' | 'explore';
+
 function App() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState<'home' | 'about'>('home')
-  const [currentSection, setCurrentSection] = useState<'myths' | 'quiz' | 'explore'>('myths');
+  const [currentCategory, setCurrentCategory] = useState<CategoryKey>('colors');
+  const [currentSection, setCurrentSection] = useState<SectionKey>('myths');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
 
+  // Data selection based on category
+  const getMyths = () => {
+    if (currentCategory === 'colors') return colorMyths;
+    if (currentCategory === 'objects') return objectMyths;
+    if (currentCategory === 'activities') return activityMyths;
+    return [];
+  };
+  const getQuiz = () => {
+    if (currentCategory === 'colors') return colorQuizQuestions;
+    if (currentCategory === 'objects') return objectQuizQuestions;
+    if (currentCategory === 'activities') return activityQuizQuestions;
+    return [];
+  };
+  const getExplore = () => {
+    if (currentCategory === 'colors') return colorExplore;
+    if (currentCategory === 'objects') return objectExplore;
+    if (currentCategory === 'activities') return activityExplore;
+    return [];
+  };
+
+  const handleAnswer = (selectedOption: number) => {
+    if (selectedOption === getQuiz()[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+    setShowExplanation(true);
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestion < getQuiz().length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setShowExplanation(false);
+    }
+  };
+
+  // Reset quiz when category or section changes
+  const handleSectionChange = (section: SectionKey) => {
+    setCurrentSection(section);
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowExplanation(false);
+  };
+  const handleCategoryChange = (category: CategoryKey) => {
+    setCurrentCategory(category);
+    setCurrentSection('myths');
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowExplanation(false);
+  };
+
+  // Color data for color cards
   const colors = [
     { 
       name: 'Red', 
@@ -128,20 +330,6 @@ function App() {
     }
   ]
 
-  const handleAnswer = (selectedOption: number) => {
-    if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
-      setScore(score + 1);
-    }
-    setShowExplanation(true);
-  };
-
-  const nextQuestion = () => {
-    if (currentQuestion < quizQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setShowExplanation(false);
-    }
-  };
-
   return (
     <div className="app">
       <nav style={{
@@ -192,136 +380,166 @@ function App() {
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', minHeight: 'calc(100vh - 200px)' }}>
         {currentPage === 'home' ? (
           <>
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '2rem' }}>
-                <button 
-                  onClick={() => setCurrentSection('myths')}
+            {/* Category Navigation */}
+            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              {categories.map(cat => (
+                <button
+                  key={cat.key}
+                  onClick={() => handleCategoryChange(cat.key)}
                   style={{
-                    backgroundColor: currentSection === 'myths' ? '#3498db' : '#2c3e50',
+                    backgroundColor: currentCategory === cat.key ? '#e67e22' : '#2c3e50',
                     color: 'white',
                     border: 'none',
-                    padding: '0.5rem 1rem',
+                    padding: '0.5rem 1.2rem',
+                    borderRadius: '4px',
                     cursor: 'pointer',
-                    borderRadius: '4px'
+                    fontWeight: 'bold',
+                    fontSize: '1rem'
                   }}
                 >
-                  Color Myths
+                  {cat.label}
                 </button>
-                <button 
-                  onClick={() => setCurrentSection('quiz')}
-                  style={{
-                    backgroundColor: currentSection === 'quiz' ? '#3498db' : '#2c3e50',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    cursor: 'pointer',
-                    borderRadius: '4px'
-                  }}
-                >
-                  Color Quiz
-                </button>
-                <button 
-                  onClick={() => setCurrentSection('explore')}
-                  style={{
-                    backgroundColor: currentSection === 'explore' ? '#3498db' : '#2c3e50',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    cursor: 'pointer',
-                    borderRadius: '4px'
-                  }}
-                >
-                  Explore Colors
-                </button>
-              </div>
-
-              {currentSection === 'myths' && (
-                <section className="myths-section">
-                  <h2>Color Myths & Truths</h2>
-                  {colorMyths.map((myth, index) => (
-                    <div key={index} className="myth-card">
-                      <h3>Myth: {myth.myth}</h3>
-                      <p><strong>Truth:</strong> {myth.truth}</p>
-                      <p><strong>History:</strong> {myth.history}</p>
-                    </div>
-                  ))}
-                </section>
-              )}
-
-              {currentSection === 'quiz' && (
-                <section className="quiz-section">
-                  <h2>Color Quiz</h2>
-                  {currentQuestion < quizQuestions.length ? (
-                    <div className="quiz-card">
-                      <h3>Question {currentQuestion + 1} of {quizQuestions.length}</h3>
-                      <p>{quizQuestions[currentQuestion].question}</p>
-                      <div className="options">
-                        {quizQuestions[currentQuestion].options.map((option, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleAnswer(index)}
-                            disabled={showExplanation}
-                          >
-                            {option}
-                          </button>
-                        ))}
-                      </div>
-                      {showExplanation && (
-                        <div className="explanation">
-                          <p>{quizQuestions[currentQuestion].explanation}</p>
-                          <button onClick={nextQuestion}>
-                            {currentQuestion < quizQuestions.length - 1 ? 'Next Question' : 'See Results'}
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="results">
-                      <h3>Quiz Complete!</h3>
-                      <p>Your score: {score} out of {quizQuestions.length}</p>
-                      <button onClick={() => {
-                        setCurrentQuestion(0);
-                        setScore(0);
-                        setShowExplanation(false);
-                      }}>
-                        Try Again
-                      </button>
-                    </div>
-                  )}
-                </section>
-              )}
-
-              {currentSection === 'explore' && (
-                <section className="explore-section">
-                  <h2>Explore Colors</h2>
-                  <div className="color-info">
-                    <h3>Did You Know?</h3>
-                    <ul>
-                      <li>Colors can affect our mood and emotions</li>
-                      <li>Different cultures see colors differently</li>
-                      <li>There are no "boy colors" or "girl colors" - colors are for everyone!</li>
-                      <li>Some people can see more colors than others (tetrachromacy)</li>
-                      <li>Colors can have different meanings in different contexts</li>
-                    </ul>
-                  </div>
-                </section>
-              )}
-            </div>
-
-            <div className="color-grid">
-              {colors.map(color => (
-                <ColorCard
-                  key={color.name}
-                  color={color}
-                  onClick={() => setSelectedColor(color.name)}
-                />
               ))}
             </div>
-            {selectedColor && (
-              <ColorDetail
-                color={colors.find(c => c.name === selectedColor)!}
-                onClose={() => setSelectedColor(null)}
-              />
+
+            {/* Section Navigation */}
+            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <button
+                onClick={() => handleSectionChange('myths')}
+                style={{
+                  backgroundColor: currentSection === 'myths' ? '#3498db' : '#2c3e50',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.5rem 1.2rem',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '1rem'
+                }}
+              >
+                Myths
+              </button>
+              <button
+                onClick={() => handleSectionChange('quiz')}
+                style={{
+                  backgroundColor: currentSection === 'quiz' ? '#3498db' : '#2c3e50',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.5rem 1.2rem',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '1rem'
+                }}
+              >
+                Quiz
+              </button>
+              <button
+                onClick={() => handleSectionChange('explore')}
+                style={{
+                  backgroundColor: currentSection === 'explore' ? '#3498db' : '#2c3e50',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.5rem 1.2rem',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '1rem'
+                }}
+              >
+                Explore
+              </button>
+            </div>
+
+            {/* Section Content */}
+            {currentSection === 'myths' && (
+              <section className="myths-section">
+                <h2 style={{ color: '#e67e22' }}>{categories.find(c => c.key === currentCategory)?.label} Myths & Truths</h2>
+                {getMyths().map((myth, index) => (
+                  <div key={index} className="myth-card">
+                    <h3>Myth: {myth.myth}</h3>
+                    <p><strong>Truth:</strong> {myth.truth}</p>
+                    <p><strong>History:</strong> {myth.history}</p>
+                  </div>
+                ))}
+              </section>
+            )}
+
+            {currentSection === 'quiz' && (
+              <section className="quiz-section">
+                <h2 style={{ color: '#e67e22' }}>{categories.find(c => c.key === currentCategory)?.label} Quiz</h2>
+                {currentQuestion < getQuiz().length ? (
+                  <div className="quiz-card">
+                    <h3>Question {currentQuestion + 1} of {getQuiz().length}</h3>
+                    <p>{getQuiz()[currentQuestion].question}</p>
+                    <div className="options">
+                      {getQuiz()[currentQuestion].options.map((option, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleAnswer(index)}
+                          disabled={showExplanation}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                    {showExplanation && (
+                      <div className="explanation">
+                        <p>{getQuiz()[currentQuestion].explanation}</p>
+                        <button onClick={nextQuestion}>
+                          {currentQuestion < getQuiz().length - 1 ? 'Next Question' : 'See Results'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="results">
+                    <h3>Quiz Complete!</h3>
+                    <p>Your score: {score} out of {getQuiz().length}</p>
+                    <button onClick={() => {
+                      setCurrentQuestion(0);
+                      setScore(0);
+                      setShowExplanation(false);
+                    }}>
+                      Try Again
+                    </button>
+                  </div>
+                )}
+              </section>
+            )}
+
+            {currentSection === 'explore' && (
+              <section className="explore-section">
+                <h2 style={{ color: '#e67e22' }}>Explore {categories.find(c => c.key === currentCategory)?.label}</h2>
+                <div className="color-info">
+                  <ul>
+                    {getExplore().map((fact, idx) => (
+                      <li key={idx}>{fact}</li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            )}
+
+            {/* Show color cards only for Colors category */}
+            {currentCategory === 'colors' && (
+              <>
+                <div className="color-grid">
+                  {colors.map(color => (
+                    <ColorCard
+                      key={color.name}
+                      color={color}
+                      onClick={() => setSelectedColor(color.name)}
+                    />
+                  ))}
+                </div>
+                {selectedColor && (
+                  <ColorDetail
+                    color={colors.find(c => c.name === selectedColor)!}
+                    onClose={() => setSelectedColor(null)}
+                  />
+                )}
+              </>
             )}
           </>
         ) : (
