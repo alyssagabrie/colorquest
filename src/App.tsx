@@ -3,6 +3,7 @@ import './App.css'
 import ColorCard from './components/ColorCard'
 import ColorDetail from './components/ColorDetail'
 import About from './components/About'
+import Footer from './components/Footer'
 
 function App() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
@@ -112,7 +113,7 @@ function App() {
         </div>
       </nav>
 
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', minHeight: 'calc(100vh - 200px)' }}>
         {currentPage === 'home' ? (
           <>
             <div className="color-grid">
@@ -135,6 +136,8 @@ function App() {
           <About />
         )}
       </main>
+
+      <Footer />
     </div>
   )
 }

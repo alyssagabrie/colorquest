@@ -19,6 +19,10 @@ const About: React.FC = () => {
           Through interactive color cards, quizzes, and reflection prompts, children can explore the world of colors while developing 
           their cognitive and creative skills.
         </p>
+        <p style={{ lineHeight: '1.6', color: '#34495e', marginTop: '1rem' }}>
+          Recommended for children ages 4-8, ColorQuest helps young learners develop their understanding of colors, 
+          challenge common misconceptions, and express their creativity through color exploration.
+        </p>
       </section>
 
       <section style={{ marginBottom: '2rem' }}>
