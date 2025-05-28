@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   build-and-deploy:
@@ -30,4 +31,6 @@ jobs:
         with:
           folder: dist
           branch: gh-pages
-          clean: true 
+          clean: true
+          commit-message: "Deploying to gh-pages via pull request 🚀"
+          pull-request: true 
