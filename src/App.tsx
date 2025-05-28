@@ -5,9 +5,71 @@ import ColorDetail from './components/ColorDetail'
 import About from './components/About'
 import Footer from './components/Footer'
 
+interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+}
+
+const colorMyths = [
+  {
+    myth: "Pink is for girls, blue is for boys",
+    truth: "This is a relatively recent concept! Before the 1940s, pink was actually considered a stronger color suitable for boys, while blue was seen as delicate and feminine.",
+    history: "The current association only became popular after World War II due to marketing campaigns."
+  },
+  {
+    myth: "Red means stop, green means go",
+    truth: "While these associations are common in traffic signals, colors can have different meanings in different cultures.",
+    history: "In China, red symbolizes good fortune and joy, while in South Africa, red is associated with mourning."
+  },
+  {
+    myth: "Yellow is a happy color",
+    truth: "While yellow can represent happiness, it can also symbolize caution, cowardice, or illness in different contexts.",
+    history: "In Egypt, yellow was associated with mourning, while in Japan it represents courage."
+  }
+];
+
+const quizQuestions: QuizQuestion[] = [
+  {
+    question: "Which color was traditionally associated with boys in the early 1900s?",
+    options: ["Blue", "Pink", "Green", "Yellow"],
+    correctAnswer: 1,
+    explanation: "Pink was considered a stronger color and was often used for boys' clothing in the early 1900s!"
+  },
+  {
+    question: "What does the color red symbolize in Chinese culture?",
+    options: ["Danger", "Good fortune", "Love", "Anger"],
+    correctAnswer: 1,
+    explanation: "In Chinese culture, red symbolizes good fortune, joy, and prosperity."
+  },
+  {
+    question: "Which famous artist said 'Color is my day-long obsession, joy, and torment'?",
+    options: ["Vincent van Gogh", "Pablo Picasso", "Claude Monet", "Frida Kahlo"],
+    correctAnswer: 2,
+    explanation: "Claude Monet was known for his revolutionary use of color in impressionist painting."
+  },
+  {
+    question: "What color is associated with royalty in many cultures?",
+    options: ["Red", "Blue", "Purple", "Gold"],
+    correctAnswer: 2,
+    explanation: "Purple became associated with royalty because the dye was historically very expensive to produce."
+  },
+  {
+    question: "Which color is considered lucky in many Asian cultures?",
+    options: ["Blue", "Red", "Green", "Yellow"],
+    correctAnswer: 1,
+    explanation: "Red is considered lucky in many Asian cultures and is often used in celebrations and festivals."
+  }
+];
+
 function App() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState<'home' | 'about'>('home')
+  const [currentSection, setCurrentSection] = useState<'myths' | 'quiz' | 'explore'>('myths');
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showExplanation, setShowExplanation] = useState(false);
 
   const colors = [
     { 
@@ -66,6 +128,20 @@ function App() {
     }
   ]
 
+  const handleAnswer = (selectedOption: number) => {
+    if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+    setShowExplanation(true);
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestion < quizQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setShowExplanation(false);
+    }
+  };
+
   return (
     <div className="app">
       <nav style={{
@@ -116,6 +192,122 @@ function App() {
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', minHeight: 'calc(100vh - 200px)' }}>
         {currentPage === 'home' ? (
           <>
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '2rem' }}>
+                <button 
+                  onClick={() => setCurrentSection('myths')}
+                  style={{
+                    backgroundColor: currentSection === 'myths' ? '#3498db' : '#2c3e50',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    cursor: 'pointer',
+                    borderRadius: '4px'
+                  }}
+                >
+                  Color Myths
+                </button>
+                <button 
+                  onClick={() => setCurrentSection('quiz')}
+                  style={{
+                    backgroundColor: currentSection === 'quiz' ? '#3498db' : '#2c3e50',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    cursor: 'pointer',
+                    borderRadius: '4px'
+                  }}
+                >
+                  Color Quiz
+                </button>
+                <button 
+                  onClick={() => setCurrentSection('explore')}
+                  style={{
+                    backgroundColor: currentSection === 'explore' ? '#3498db' : '#2c3e50',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    cursor: 'pointer',
+                    borderRadius: '4px'
+                  }}
+                >
+                  Explore Colors
+                </button>
+              </div>
+
+              {currentSection === 'myths' && (
+                <section className="myths-section">
+                  <h2>Color Myths & Truths</h2>
+                  {colorMyths.map((myth, index) => (
+                    <div key={index} className="myth-card">
+                      <h3>Myth: {myth.myth}</h3>
+                      <p><strong>Truth:</strong> {myth.truth}</p>
+                      <p><strong>History:</strong> {myth.history}</p>
+                    </div>
+                  ))}
+                </section>
+              )}
+
+              {currentSection === 'quiz' && (
+                <section className="quiz-section">
+                  <h2>Color Quiz</h2>
+                  {currentQuestion < quizQuestions.length ? (
+                    <div className="quiz-card">
+                      <h3>Question {currentQuestion + 1} of {quizQuestions.length}</h3>
+                      <p>{quizQuestions[currentQuestion].question}</p>
+                      <div className="options">
+                        {quizQuestions[currentQuestion].options.map((option, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleAnswer(index)}
+                            disabled={showExplanation}
+                          >
+                            {option}
+                          </button>
+                        ))}
+                      </div>
+                      {showExplanation && (
+                        <div className="explanation">
+                          <p>{quizQuestions[currentQuestion].explanation}</p>
+                          <button onClick={nextQuestion}>
+                            {currentQuestion < quizQuestions.length - 1 ? 'Next Question' : 'See Results'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="results">
+                      <h3>Quiz Complete!</h3>
+                      <p>Your score: {score} out of {quizQuestions.length}</p>
+                      <button onClick={() => {
+                        setCurrentQuestion(0);
+                        setScore(0);
+                        setShowExplanation(false);
+                      }}>
+                        Try Again
+                      </button>
+                    </div>
+                  )}
+                </section>
+              )}
+
+              {currentSection === 'explore' && (
+                <section className="explore-section">
+                  <h2>Explore Colors</h2>
+                  <div className="color-info">
+                    <h3>Did You Know?</h3>
+                    <ul>
+                      <li>Colors can affect our mood and emotions</li>
+                      <li>Different cultures see colors differently</li>
+                      <li>There are no "boy colors" or "girl colors" - colors are for everyone!</li>
+                      <li>Some people can see more colors than others (tetrachromacy)</li>
+                      <li>Colors can have different meanings in different contexts</li>
+                    </ul>
+                  </div>
+                </section>
+              )}
+            </div>
+
             <div className="color-grid">
               {colors.map(color => (
                 <ColorCard
