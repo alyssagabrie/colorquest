@@ -12,13 +12,21 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './index.html'
+      },
+      output: {
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     }
   },
   server: {
     port: 3000,
     strictPort: true,
-    host: true
+    host: true,
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
   },
   optimizeDeps: {
     include: ['react', 'react-dom']
