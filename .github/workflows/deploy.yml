@@ -30,8 +30,8 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           folder: dist
           branch: gh-pages
           clean: true
-          commit-message: "Deploying to gh-pages 🚀" 
+          commit-message: "Deploying to gh-pages 🚀"
+          force: true 
