@@ -14,5 +14,10 @@ export default defineConfig({
         main: './index.html'
       }
     }
+  },
+  server: {
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
   }
 })
